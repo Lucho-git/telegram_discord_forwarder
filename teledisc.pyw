@@ -13,23 +13,21 @@ def SendMessageToAlwaysWin(message):
 def StartTelegramForwarding():
     api_id = 5747368
     api_hash = '19f6d3c9d8d4e6540bce79c3b9223fbe'
-    stringsesh = '1BVtsOIIBuxkl8w5skOHjonDCR_DFvM7luxNQA8itLwXv1CYkUSzhUh-sjw6I-qA6esNDR7JLmxUhCdXXE96vb6wMxPTmbWRDTDD626CeEmGa3ohLgJaoH1CeG_28DuYLqnNVsumwhp-rVqFb4Ksvo7GNgnCOiNUOpMthcHT2neKufl6c31LpedhxGoBCnbZIFc4peEK_hwqlJgW7uQAVD2p8LD0LVR70EQxjXnwJ-ROfWScorMUrcV7C2NA1Fg71KFhWpGSoyfkKzgdAD7OIM3E5TdXLdpX-7g4lwQCloCL1GODnhGQD28eAwcHZ4Y7b_OWO3Ueeej7esgIbzx7NAJGJkfTTifI='
+    stringsesh = '1BVtsOLYBu524ThiNeAkmK_bCr13hue-pxnoqIINLtYe4B6g7Rzq7uLtBfZv-3JDhl1R1JFdEhyjx6KAxFvOEaa1Mnlegji1hiIP5zW0qmWCrQsbVII47Zh3uul_oWPtCAKMCjlAmYcvmppnyRZMrizSH4G5hahXgLb6FuSvmP0RR7zLg6C7ZTYrQSonmLv0UTUOMHi9P6_0-9_VKlIhGwn8OEBLaiVl3Gjx4XbgtB8-gjz0k7L7dxkYpu4SQ7mNMi4rFZlz-XxQJPIlQ6CUwdy0v0K0qdLJ1bWmCesO0TlwPFntVKB1eSnDh8UhYDDlXVAqTTn4H3_4-HzcrPgRtBwsuEBZp4MQ='
     client = TelegramClient(StringSession(stringsesh), api_id, api_hash)
     
     @client.on(events.NewMessage()) 
     async def my_event_handler(event):
-        print(event.raw_text)
-
         sender = await event.get_sender()
         chat = await event.get_chat()
         sender_id = str(sender.id)
         channel_name = utils.get_display_name(sender)
         msg = "Channel name: " + channel_name + " | ID: " + sender_id
-        print(msg)
         if sender_id == "1375168387":
-            SendMessageToAlwaysWin(event.raw_text)
+            #SendMessageToAlwaysWin(event.raw_text)
+            pass
         elif chat.id == 1899129008:
-            print("Robot Section +++")
+            print("Robot Section ---")
             if str(event.raw_text) == '/stop':
               print('Exiting....')
               await client.disconnect()
