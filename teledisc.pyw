@@ -6,6 +6,10 @@ import requests
 def SendMessageToAlwaysWin(message):
     if '/USDT' in message:
         message= "<@&834911692303237172>\n" + message
+    caps = message.upper()
+    if ('SHORT' in caps) or ('LONG' in caps):
+        message= "<@&834911692303237172>\n" + message
+        
     mUrl = "https://ptb.discord.com/api/webhooks/838079506660851762/7-lpGNlqWGGlO08XZJ3RwAvSXpWGDf5J6Z4ro5bsdtogYGGXovVfmYGmCb3Jvr1RvtWG"
     data = {"content": message}
     response = requests.post(mUrl, json=data)
